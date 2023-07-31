@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:tic_tac_toe/constants.dart';
+import 'package:tic_tac_toe/home_screen.dart';
 
 
 
@@ -34,16 +35,30 @@ class _best_Of_5State extends State<best_Of_5> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.purple.shade100,
+
         title: Text(
           'Best Of 5',
-          style: kCustomText(
-              fontSize: 20.0, color: Colors.white, fontWeight: FontWeight.w800),
+          style:TextStyle(
+            color: Colors.purple.shade700,
+            fontWeight: FontWeight.bold,
+            fontSize: 23,
+          )
         ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new),
+            color: Colors.purple.shade700,
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => HomePage(),));
+        },),
       ),
       backgroundColor: Colors.purple.shade50,
       body: Column(
         children: [
+          SizedBox(
+            height: 25,
+          ),
           playerTurn(),
           gridView(),
         ],
@@ -58,20 +73,22 @@ class _best_Of_5State extends State<best_Of_5> {
         children: [
 
           buildTeamContainer(
+            playerColor: Colors.redAccent.shade700,
             turnOf: turnOf, // Replace with the appropriate value for Team O
-            teamName: 'TEAM O',
-            borderColor: Colors.pink.shade900,
-            activeColor: Colors.pink.shade700,
-            inactiveColor: Colors.pink.shade200,
+            teamName: 'Player O',
+            borderColor: Colors.redAccent.shade700,
+            activeColor: Colors.pink.shade100,
+            inactiveColor: Colors.pink.shade100,
             score: scoreO,
           ),
 
           buildTeamContainer(
+            playerColor: Colors.purple.shade700,
             turnOf: !turnOf, // Replace with the appropriate value for Team X
-            teamName: 'TEAM X',
-            borderColor: Colors.purple.shade800,
-            activeColor: Colors.purple,
-            inactiveColor: Colors.purple.shade300,
+            teamName: 'Player X',
+            borderColor: Colors.purple.shade700,
+            activeColor: Colors.purple.shade100,
+            inactiveColor: Colors.purple.shade100,
             score: scoreX,
           ),
         ],
@@ -82,40 +99,42 @@ class _best_Of_5State extends State<best_Of_5> {
 
   Widget gridView() {
     return Expanded(
-      child: Container(
-        height: 400,
-        width: 400,
-        child: GridView.builder(
-            itemCount: 9,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              mainAxisSpacing: 3,
-              crossAxisSpacing: 3,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () {
-                  print(playerInput);
-                  _tapped(index);
+      child: Center(
+        child: Container(
+          height: 400,
+          width: 300,
+          child: GridView.builder(
+              itemCount: 9,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 3,
+                crossAxisSpacing: 3,
+              ),
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  onTap: () {
+                    print(playerInput);
+                    _tapped(index);
 
-                },
-                child: Container(
-                  decoration:
-                  BoxDecoration(border: Border.all(color:
-                  Colors.purple.shade700)),
-                  child: Center(
-                    child: Text(playerInput[index],
-                      style: TextStyle(
-                          color:
-                          playerInput[index] == 'x' ? Colors.purple :
-                          Colors.pink.shade700,
-                          fontSize: 80,fontWeight: FontWeight.bold
+                  },
+                  child: Container(
+                    decoration:
+                    BoxDecoration(border: Border.all(color:
+                    Colors.purple.shade700)),
+                    child: Center(
+                      child: Text(playerInput[index],
+                        style: TextStyle(
+                            color:
+                            playerInput[index] == 'x' ? Colors.purple :
+                            Colors.pink.shade700,
+                            fontSize: 80,fontWeight: FontWeight.bold
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            }),
+                );
+              }),
+        ),
       ),
     );
   }
@@ -269,11 +288,13 @@ class _best_Of_5State extends State<best_Of_5> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: win ? Text('TEAM X WIN'):Text('TEAM O WIN'),
+        title: win ? Text('Player X WIN'):Text('Player O WIN'),
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(ctx).pop();
+              Navigator.push(context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),));
             },
             child: Container(
               color: Colors.purple,
@@ -285,6 +306,7 @@ class _best_Of_5State extends State<best_Of_5> {
       ),
     );
     setState(() {
+
       scoreO=0;
       scoreX=0;
     });
