@@ -1,19 +1,27 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:tic_tac_toe/constants.dart';
 import 'package:tic_tac_toe/home_screen.dart';
+import 'main.dart';
 
 
 
 
-class best_Of_5 extends StatefulWidget {
-  const best_Of_5({ Key? key}) : super(key: key);
+class Best_Of_3 extends StatefulWidget {
+  const Best_Of_3({ Key? key}) : super(key: key);
+
 
   @override
-  _best_Of_5State createState() => _best_Of_5State();
+  _Best_Of_3State createState() => _Best_Of_3State();
 }
 
-class _best_Of_5State extends State<best_Of_5> {
+class _Best_Of_3State extends State<Best_Of_3> {
+
+
+  int randomIndex = Random().nextInt(9);
   int scoreX = 0;
   int scoreO = 0;
   bool turnOf = true;
@@ -35,23 +43,23 @@ class _best_Of_5State extends State<best_Of_5> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.purple.shade100,
+        backgroundColor: Colors.pink.shade100,
 
         title: Text(
-          'Best Of 5',
-          style:TextStyle(
-            color: Colors.purple.shade700,
-            fontWeight: FontWeight.bold,
-            fontSize: 23,
-          )
+            'Best Of 3',
+            style:TextStyle(
+              color: Colors.redAccent.shade700,
+              fontWeight: FontWeight.bold,
+              fontSize: 23,
+            )
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
-            color: Colors.purple.shade700,
+          color: Colors.redAccent.shade700,
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => HomePage(),));
-        },),
+          },),
       ),
       backgroundColor: Colors.purple.shade50,
       body: Column(
@@ -111,29 +119,28 @@ class _best_Of_5State extends State<best_Of_5> {
                 crossAxisSpacing: 3,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
 
-                  onTap: () {
+                return  GestureDetector(
+                  onTap: (){
                     _tapped(index);
-
                   },
                   child: Container(
-                    decoration:
-                    BoxDecoration(border: Border.all(color:
-                    Colors.purple.shade700)),
-                    child: Center(
-                      child: Text(playerInput[index],
-                        style: TextStyle(
-                            color:
-                            playerInput[index] == 'x' ? Colors.purple :
-                            Colors.pink.shade700,
-                            fontSize: 80,fontWeight: FontWeight.bold
+                      decoration:
+                      BoxDecoration(border: Border.all(color:
+                      Colors.pinkAccent.shade700)),
+                      child: Center(
+                        child: Text(playerInput[index],
+                          style: TextStyle(
+                              color:
+                              playerInput[index] == 'x' ? Colors.purple :
+                              Colors.pink.shade700,
+                              fontSize: 80,fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-
                 );
+
               }),
         ),
       ),
@@ -142,20 +149,22 @@ class _best_Of_5State extends State<best_Of_5> {
 
 
   void _tapped(int index) {
+
     setState(() {
-      if (turnOf && playerInput[index] == '') {
+      if (turnOf && playerInput[index] == '' ) {
         playerInput[index] = 'o';
         turnOf = !turnOf;
         boxFill += 1;
-
-      } else if (!turnOf && playerInput[index] == '') {
+      }
+      else if (!turnOf && playerInput[index] == '') {
         playerInput[index] = 'x';
         turnOf = !turnOf;
         boxFill += 1;
       }
-
       _checkTheWinner();
     });
+    print(randomIndex );
+    print(index );
 
   }
 
@@ -281,7 +290,7 @@ class _best_Of_5State extends State<best_Of_5> {
   }
   void winner(){
     bool win;
-    if(scoreX> scoreO){
+    if(scoreX > scoreO){
       win =true;
     }else{
       win=false;
@@ -321,9 +330,10 @@ class _best_Of_5State extends State<best_Of_5> {
         playerInput[i] = '';
       }
     });
-    if(scoreO+scoreX==5){
-      winner();
-    }
+
+     if(scoreX+scoreO==3){
+       winner();
+     }
 
     boxFill = 0;
   }

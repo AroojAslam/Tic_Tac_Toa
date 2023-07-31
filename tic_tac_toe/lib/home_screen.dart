@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/best_Of_3.dart';
 import 'package:tic_tac_toe/best_of_5.dart';
 
 import 'constants.dart';
@@ -26,6 +27,9 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Best_Of_3()));
+              },
               child: Container(
                 height: 60,
                 width: MediaQuery.of(context).size.width ,
