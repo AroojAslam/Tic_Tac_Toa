@@ -43,19 +43,19 @@ class _Best_Of_3State extends State<Best_Of_3> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.pink.shade100,
+        backgroundColor:KPinklight(),
 
         title: Text(
             'Best Of 3',
             style:TextStyle(
-              color: Colors.redAccent.shade700,
+              color:KpinkDark(),
               fontWeight: FontWeight.bold,
               fontSize: 23,
             )
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
-          color: Colors.redAccent.shade700,
+          color: KpinkDark(),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => HomePage(),));
@@ -81,22 +81,22 @@ class _Best_Of_3State extends State<Best_Of_3> {
         children: [
 
           buildTeamContainer(
-            playerColor: Colors.redAccent.shade700,
+            playerColor:  KpinkDark(),
             turnOf: turnOf, // Replace with the appropriate value for Team O
             teamName: 'Player O',
-            borderColor: Colors.redAccent.shade700,
-            activeColor: Colors.pink.shade100,
-            inactiveColor: Colors.pink.shade100,
+            borderColor: KpinkDark(),
+            activeColor: KPinklight(),
+            inactiveColor: KPinklight(),
             score: scoreO,
           ),
 
           buildTeamContainer(
-            playerColor: Colors.purple.shade700,
+            playerColor: KPurpleDark(),
             turnOf: !turnOf, // Replace with the appropriate value for Team X
             teamName: 'Player X',
-            borderColor: Colors.purple.shade700,
-            activeColor: Colors.purple.shade100,
-            inactiveColor: Colors.purple.shade100,
+            borderColor: KPurpleDark(),
+            activeColor:  KPurplelight(),
+            inactiveColor:  KPurplelight(),
             score: scoreX,
           ),
         ],
@@ -127,13 +127,13 @@ class _Best_Of_3State extends State<Best_Of_3> {
                   child: Container(
                       decoration:
                       BoxDecoration(border: Border.all(color:
-                      Colors.pinkAccent.shade700)),
+                      KpinkDark())),
                       child: Center(
                         child: Text(playerInput[index],
                           style: TextStyle(
                               color:
-                              playerInput[index] == 'x' ? Colors.purple :
-                              Colors.pink.shade700,
+                              playerInput[index] == 'x' ? KPurpleDark() :
+                              KpinkDark(),
                               fontSize: 80,fontWeight: FontWeight.bold,
                           ),
                         ),

@@ -11,6 +11,22 @@ TextStyle kCustomText({
         fontWeight: fontWeight
     );
 
+Color KPurpleDark(){
+  return Colors.purple.shade700;
+}
+
+Color KPurplelight(){
+  return Colors.purple.shade100;
+}
+
+Color KpinkDark(){
+  return Colors.pink.shade700;
+}
+Color KPinklight(){
+  return Colors.pink.shade100;
+}
+
+
 
 
 Widget buildTeamContainer({
@@ -67,12 +83,12 @@ Widget buildMianContainer(){
               width:120,
               decoration:BoxDecoration(
                   border: Border.all(
-                      color: Colors.purple.shade700,
+                      color: KPurpleDark(),
                       width: 2
                   ),
                   shape:BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(30),
-                  color:Colors.purple.shade200 //background color with opacity
+                  color: KPurplelight(),//background color with opacity
               ),
 
             )
@@ -85,12 +101,12 @@ Widget buildMianContainer(){
               width:60,
               decoration:BoxDecoration(
                   border: Border.all(
-                      color: Colors.purple.shade700,
+                      color: KPurpleDark(),
                       width: 2
                   ),
                   shape:BoxShape.circle,
 
-                  color:Colors.purple.shade200 //background color with opacity
+                  color: KPurplelight(), //background color with opacity
               ),
 
             )
@@ -103,12 +119,12 @@ Widget buildMianContainer(){
               width:150,
               decoration:BoxDecoration(
                   border: Border.all(
-                      color: Colors.purple.shade700,
+                      color: KPurpleDark(),
                       width: 2
                   ),
                   shape:BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(30),
-                  color:Colors.purple.shade200 //background color with opacity
+                  color: KPurplelight(), //background color with opacity
               ),
 
             )
@@ -120,11 +136,11 @@ Widget buildMianContainer(){
                 width:180,
                 decoration:BoxDecoration(
                     border: Border.all(
-                        color: Colors.redAccent.shade700,
+                        color:  KpinkDark(),
                         width: 2
                     ),
                     shape:BoxShape.circle,
-                    color:Colors.redAccent.withOpacity(0.5)
+                    color:KPinklight(),
                 )
             )
         ),
@@ -135,11 +151,11 @@ Widget buildMianContainer(){
                 width:100,
                 decoration:BoxDecoration(
                     border: Border.all(
-                        color: Colors.redAccent.shade700,
+                        color:  KpinkDark(),
                         width: 2
                     ),
                     shape:BoxShape.circle,
-                    color:Colors.redAccent.withOpacity(0.5)
+                    color:KPinklight(),
                 )
             )
         ),
@@ -161,14 +177,14 @@ Widget buildMianContainer(){
                   padding: const EdgeInsets.only(bottom: 20),
                   child: RichText(text: TextSpan(
                       children:[
-                        TextSpan(text:'TIC ',style: TextStyle(color: Colors.purple.shade700,
+                        TextSpan(text:'TIC ',style: TextStyle(color:KPurpleDark(),
                           fontSize: 35,fontWeight: FontWeight.bold,
                         ) ),
                         TextSpan(text:'TAC ',style: TextStyle(
-                            color: Colors.pink.shade700,
+                            color:  KpinkDark(),
                             fontWeight: FontWeight.bold,
                             fontSize: 45) ),
-                        TextSpan(text:'TOE' ,style: TextStyle(color: Colors.purple.shade700,
+                        TextSpan(text:'TOE' ,style: TextStyle(color: KPurpleDark(),
                           fontSize: 35,fontWeight: FontWeight.bold,)),
 
                       ]),

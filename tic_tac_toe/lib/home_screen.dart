@@ -35,17 +35,17 @@ class _HomePageState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width ,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.purple.shade700,
+                    color: KPurpleDark(),
                     width: 2,
                   ),
-                  color: Colors.purple.shade100,
+                  color: KPurplelight(),
                   borderRadius: BorderRadius.circular(20),
                 ),
 
                 child: Center(child: Text('Best Of 3',
                   style: TextStyle(fontSize: 20,
                       decoration: TextDecoration.none,
-                  color: Colors.purple.shade700,
+                  color: KPurpleDark(),
                   fontWeight: FontWeight.bold),)),
               ),
             ),
@@ -61,16 +61,16 @@ class _HomePageState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width ,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.redAccent.shade700,
+                    color:  KpinkDark(),
                     width: 2,
                   ),
-                  color:  Colors.redAccent.withOpacity(0.1),
+                  color:  KPinklight(),
                   borderRadius: BorderRadius.circular(20),
                 ),
 
                 child: Center(child: Text('Best Of 5',
                   style: TextStyle(fontSize: 20,
-                      color: Colors.redAccent.shade700,
+                      color:  KpinkDark(),
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.none),)),
               ),

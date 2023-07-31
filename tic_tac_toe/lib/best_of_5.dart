@@ -35,19 +35,19 @@ class _best_Of_5State extends State<best_Of_5> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.purple.shade100,
+        backgroundColor:  KPurplelight(),
 
         title: Text(
           'Best Of 5',
           style:TextStyle(
-            color: Colors.purple.shade700,
+            color:KPurpleDark(),
             fontWeight: FontWeight.bold,
             fontSize: 23,
           )
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
-            color: Colors.purple.shade700,
+            color: KPurpleDark(),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => HomePage(),));
@@ -73,22 +73,22 @@ class _best_Of_5State extends State<best_Of_5> {
         children: [
 
           buildTeamContainer(
-            playerColor: Colors.redAccent.shade700,
+            playerColor:  KpinkDark(),
             turnOf: turnOf, // Replace with the appropriate value for Team O
             teamName: 'Player O',
-            borderColor: Colors.redAccent.shade700,
-            activeColor: Colors.pink.shade100,
-            inactiveColor: Colors.pink.shade100,
+            borderColor:  KpinkDark(),
+            activeColor: KPinklight(),
+            inactiveColor: KPinklight(),
             score: scoreO,
           ),
 
           buildTeamContainer(
-            playerColor: Colors.purple.shade700,
+            playerColor: KPurpleDark(),
             turnOf: !turnOf, // Replace with the appropriate value for Team X
             teamName: 'Player X',
-            borderColor: Colors.purple.shade700,
-            activeColor: Colors.purple.shade100,
-            inactiveColor: Colors.purple.shade100,
+            borderColor: KPurpleDark(),
+            activeColor:  KPurplelight(),
+            inactiveColor:  KPurplelight(),
             score: scoreX,
           ),
         ],
@@ -120,13 +120,14 @@ class _best_Of_5State extends State<best_Of_5> {
                   child: Container(
                     decoration:
                     BoxDecoration(border: Border.all(color:
-                    Colors.purple.shade700)),
+                    KPurpleDark(),
+                    )),
                     child: Center(
                       child: Text(playerInput[index],
                         style: TextStyle(
                             color:
-                            playerInput[index] == 'x' ? Colors.purple :
-                            Colors.pink.shade700,
+                            playerInput[index] == 'x' ? KPurpleDark() :
+                            KpinkDark(),
                             fontSize: 80,fontWeight: FontWeight.bold
                         ),
                       ),
