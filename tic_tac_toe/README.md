@@ -7,6 +7,8 @@ A new Flutter project.
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
+![tic_tac_toe](https://github.com/AroojAslam/Tic_Tac_Toa/assets/101873027/3a1f2649-8fba-4ec9-86b6-dfa331371958)
+
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
